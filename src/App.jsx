@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Fav from "./pages/Fav";
+import "./style/index.scss";
 
 function App() {
-  const [count] = useState(0);
-  useEffect(() => {
-    console.log({ count });
-  }, []);
   return (
-    <div>
-      <p>salut !</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favoris" element={<Fav />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

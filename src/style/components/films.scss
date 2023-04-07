@@ -1,0 +1,28 @@
+.films {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    .card {
+      flex: 1 0 300px;
+      display: flex;
+      justify-content: center;
+      height: 500px;
+      margin-bottom: 50px;
+      .img-container {
+        width: 30%;
+        height: 100%;
+        img {
+          width: 100%;
+        }
+        p {
+          height: 4.5em;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          line-clamp: 3;
+        }
+      }
+    }
+  }
+}
