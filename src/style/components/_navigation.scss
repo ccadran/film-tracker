@@ -1,0 +1,36 @@
+.navigation {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    a {
+      margin: 0 60px;
+      font-size: 6rem;
+      li {
+        position: relative;
+        display: inline-block;
+        font-weight: 800;
+        color: rgb(255, 255, 255);
+        overflow: hidden;
+        background: linear-gradient(
+          to right,
+          royalblue 50%,
+          rgb(255, 255, 255) 50%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 375ms ease;
+        &:hover {
+          background-position: 0 100%;
+        }
+      }
+    }
+    .nav-active li {
+      background-position: 0 100%;
+    }
+  }
+}

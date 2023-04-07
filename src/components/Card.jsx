@@ -9,10 +9,11 @@ const Card = ({ film }) => {
           alt=""
         />
       </div>
+      <h2>{film.title}</h2>
       <p id="release"> Sortie le : {film.release_date}</p>
       <h3>{film.vote_average}/10</h3>
       <h3>Synopsis</h3>
-      <p>{film.overview}</p>
+      <p id="synopsis">{film.overview}</p>
       <button>Ajouter aux coups de coeurs</button>
     </li>
   );

@@ -1,0 +1,30 @@
+.card {
+  flex: 1 0 15%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  // min-width: 150px;
+  margin: 20px;
+  background: rgb(0, 0, 47);
+  border-radius: 30px;
+  padding: 25px;
+  .img-container {
+    margin: 0 auto;
+    width: 30%;
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  #synopsis {
+    height: 7.5em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 6;
+  }
+  button {
+    z-index: 1;
+  }
+}

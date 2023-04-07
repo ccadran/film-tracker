@@ -1,14 +1,14 @@
 import React from "react";
 import Navigation from "../components/Navigation";
-import SearchForm from "../components/SearchForm";
 import Films from "../components/Films";
+import SearchForm from "../components/SearchForm";
 
 const Home = () => {
   return (
     <div>
       <Navigation />
       <SearchForm />
-      <Films />
+      {/* <Films /> */}
     </div>
   );
 };

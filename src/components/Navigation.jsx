@@ -16,7 +16,7 @@ const Navigation = () => {
           to="/favoris"
           className={(nav) => (nav.isActive ? "nav-active hover" : "hover")}
         >
-          <li>Coup de coeurs</li>
+          <li>Favoris</li>
         </NavLink>
       </ul>
     </div>

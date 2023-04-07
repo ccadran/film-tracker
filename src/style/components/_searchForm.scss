@@ -1,0 +1,14 @@
+.search-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  #searchBar {
+    margin-bottom: 30px;
+    width: 17vw;
+    height: 2vw;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+  }
+}
