@@ -6,11 +6,15 @@ const Films = ({ filmsData }) => {
   return (
     <div className="main">
       <div className="films">
-        <ul>
-          {filmsData.map((film, index) => {
-            return <Card key={index} film={film} />;
-          })}
-        </ul>
+        {filmsData.length === 0 ? (
+          <h1>Veuillez chercher un Film</h1>
+        ) : (
+          <ul>
+            {filmsData.map((film, index) => {
+              return <Card key={index} film={film} />;
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );

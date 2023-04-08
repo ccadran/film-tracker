@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "clash-display";
+  src: url("/src/assets/fonts/CLASHDISPLAY-BOLD.OTF");
+}
+@font-face {
+  font-family: "satoshi";
+  src: url("/src/assets/fonts/SATOSHI-REGULAR.OTF");
+}
+$title-font: "clash-display";
+$body-font: "satoshi";
+
 body {
   background: black;
   color: white;

@@ -1,7 +1,7 @@
 .card {
   flex: 1 0 15%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   margin-bottom: 50px;
   // min-width: 150px;
@@ -9,13 +9,17 @@
   background: rgb(0, 0, 47);
   border-radius: 30px;
   padding: 25px;
+  font-family: $title-font;
   .img-container {
     margin: 0 auto;
-    width: 30%;
+    width: 50%;
     height: 100%;
     img {
       width: 100%;
     }
+  }
+  #release {
+    font-family: $body-font;
   }
   #synopsis {
     height: 7.5em;
@@ -23,6 +27,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-clamp: 6;
+    font-family: $body-font;
   }
   button {
     z-index: 1;

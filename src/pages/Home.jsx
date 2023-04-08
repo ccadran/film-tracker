@@ -8,7 +8,6 @@ const Home = () => {
     <div>
       <Navigation />
       <SearchForm />
-      {/* <Films /> */}
     </div>
   );
 };

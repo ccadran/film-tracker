@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    font-family: $title-font;
     a {
       margin: 0 60px;
       font-size: 6rem;
@@ -11,12 +12,14 @@
         position: relative;
         display: inline-block;
         font-weight: 800;
-        color: rgb(255, 255, 255);
+        color: transparent;
+        background-color: transparent;
+        -webkit-text-stroke: 2px white;
         overflow: hidden;
         background: linear-gradient(
           to right,
-          royalblue 50%,
-          rgb(255, 255, 255) 50%
+          rgb(255, 255, 255) 50%,
+          transparent 50%
         );
         background-clip: text;
         -webkit-background-clip: text;
@@ -30,7 +33,12 @@
       }
     }
     .nav-active li {
-      background-position: 0 100%;
+      background-position: 100%;
+      border-bottom: 1px white solid;
+      &:hover {
+        background: none;
+        transition-delay: 5000ms;
+      }
     }
   }
 }
