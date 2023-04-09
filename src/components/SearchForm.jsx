@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Films from "./Films";
+
 const SearchForm = () => {
   const [filmsData, setFilmsData] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentSort, setCurrentSort] = useState("");
 
   useEffect(() => {
     axios
@@ -14,6 +16,18 @@ const SearchForm = () => {
       )
       .then((res) => setFilmsData(res.data.results));
   }, [search]);
+
+  const handleSort = (sortType) => {
+    let sortedFilms = [...filmsData];
+    if (sortType === "Top") {
+      sortedFilms.sort((a, b) => b.vote_average - a.vote_average);
+    } else {
+      sortedFilms.sort((a, b) => a.vote_average - b.vote_average);
+    }
+    setFilmsData(sortedFilms);
+    setCurrentSort(sortType);
+  };
+
   return (
     <div className="search-form">
       <div className="form">
@@ -25,8 +39,18 @@ const SearchForm = () => {
         />
       </div>
       <div className="search-filter">
-        <button className="filter">Top</button>
-        <button className="filter">Flop</button>
+        <button
+          className={currentSort === "Top" ? "filter active" : "filter"}
+          onClick={() => handleSort("Top")}
+        >
+          Top
+        </button>
+        <button
+          className={currentSort === "Flop" ? "filter active" : "filter"}
+          onClick={() => handleSort("Flop")}
+        >
+          Flop
+        </button>
       </div>
       <Films filmsData={filmsData} />
     </div>
