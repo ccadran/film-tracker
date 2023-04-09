@@ -16,13 +16,15 @@
     width: 15vw;
     justify-content: space-between;
     .filter {
-      padding: 10px 20px;
+      padding: 10px 20px 10px 20px;
       font-family: $title-font;
       border-radius: 5px;
       border: none;
       letter-spacing: 1.5px;
       position: relative;
       width: 5vw;
+      min-width: 80px;
+      transition: 0.2s ease-in-out;
       #up {
         margin-left: 5px;
         color: rgb(0, 0, 0);
@@ -42,14 +44,15 @@
         transition: 0.3s ease-in-out;
       }
       &.active {
+        padding: 10px 30px 10px 20px;
         #up {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateY(-10%);
           font-size: 20px;
         }
         #down {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateY(-10%);
           font-size: 20px;
         }
       }
