@@ -11,4 +11,48 @@
     color: rgb(0, 0, 0);
     border: none;
   }
+  .search-filter {
+    display: flex;
+    width: 15vw;
+    justify-content: space-between;
+    .filter {
+      padding: 10px 20px;
+      font-family: $title-font;
+      border-radius: 5px;
+      border: none;
+      letter-spacing: 1.5px;
+      position: relative;
+      width: 5vw;
+      #up {
+        margin-left: 5px;
+        color: rgb(0, 0, 0);
+        opacity: 0;
+        position: absolute;
+        transform: translateY(150%);
+        font-size: 20px;
+        transition: 0.3s ease-in-out;
+      }
+      #down {
+        margin-left: 5px;
+        color: rgb(0, 0, 0);
+        opacity: 0;
+        position: absolute;
+        transform: translateY(-150%);
+        font-size: 20px;
+        transition: 0.3s ease-in-out;
+      }
+      &.active {
+        #up {
+          opacity: 1;
+          transform: translateY(0);
+          font-size: 20px;
+        }
+        #down {
+          opacity: 1;
+          transform: translateY(0);
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
