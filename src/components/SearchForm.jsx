@@ -44,14 +44,14 @@ const SearchForm = () => {
           onClick={() => handleSort("Top")}
         >
           Top
-          <i class="fa-solid fa-arrow-up" id="up"></i>
+          <i className="fa-solid fa-arrow-up" id="up"></i>
         </button>
         <button
           className={currentSort === "Flop" ? "filter active" : "filter"}
           onClick={() => handleSort("Flop")}
         >
           Flop
-          <i class="fa-solid fa-arrow-down" id="down"></i>
+          <i className="fa-solid fa-arrow-down" id="down"></i>
         </button>
       </div>
       <Films filmsData={filmsData} />
