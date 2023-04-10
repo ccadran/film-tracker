@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Card = ({ film }) => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
+  const [liked, setLiked] = useState(false);
+
   const handleAddToFavorites = () => {
-    if (!favorites.includes(film.id)) {
+    if (favorites.includes(film.id)) {
+      const index = favorites.indexOf(film.id);
+      favorites.splice(index, 1);
+      setLiked(false);
+    } else {
       favorites.push(film.id);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setLiked(true);
     }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
   return (
     <li className="card">
+      <i className={"fa-solid fa-heart heart" + (liked ? " like" : "")} />
+
       <div className="img-container">
         <img
           src={"https://image.tmdb.org/t/p/original/" + film.poster_path}
@@ -27,7 +36,9 @@ const Card = ({ film }) => {
         onClick={handleAddToFavorites}
         className={favorites.includes(film.id) ? "added" : ""}
       >
-        {favorites.includes(film.id) ? "Favoris" : "Ajouter aux favoris"}
+        {favorites.includes(film.id)
+          ? "Supprimer des Favoris"
+          : "Ajouter aux favoris"}
       </button>
     </li>
   );

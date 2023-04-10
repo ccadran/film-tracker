@@ -34,11 +34,30 @@
     }
     .nav-active li {
       background-position: 100%;
-      border-bottom: 1px white solid;
+      // border-bottom: 3px white solid;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: white;
+        transition: after 0.5s ease;
+      }
       &:hover {
         background: none;
         transition-delay: 5000ms;
       }
     }
+  }
+}
+
+@keyframes after {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }

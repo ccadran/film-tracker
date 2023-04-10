@@ -10,6 +10,12 @@
   border-radius: 30px;
   padding: 25px;
   font-family: $title-font;
+  position: relative;
+  .heart {
+    position: absolute;
+    // display: none;
+    opacity: 0.3;
+  }
   .img-container {
     margin: 0 auto;
     width: 50%;
@@ -36,5 +42,8 @@
 .added {
   background-color: gray;
   color: white;
-  cursor: not-allowed;
+  cursor: pointer;
+}
+.heart.like {
+  opacity: 1;
 }

@@ -25,6 +25,9 @@
       width: 5vw;
       min-width: 80px;
       transition: 0.2s ease-in-out;
+      &:hover {
+        cursor: pointer;
+      }
       #up {
         margin-left: 5px;
         color: rgb(0, 0, 0);
