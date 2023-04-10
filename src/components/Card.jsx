@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Card = ({ film }) => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   const [liked, setLiked] = useState(false);
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/genre/movie/list?api_key=80b2f79a8e9b927120f24d29d8701a49&language=fr-FR"
+      )
+      .then((response) => {
+        setGenres(response.data.genres);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(genres);
 
   const handleAddToFavorites = () => {
     if (favorites.includes(film.id)) {
@@ -29,7 +45,14 @@ const Card = ({ film }) => {
       </div>
       <h2>{film.title}</h2>
       <p id="release"> Sortie le : {film.release_date}</p>
-      <h3>{film.vote_average}/10</h3>
+      <h4>{film.vote_average}/10</h4>
+      <ul id="genres">
+        {film.genre_ids.map((id) => {
+          const genre = genres.find((genre) => genre.id === id);
+          return <li key={genre.id}>{genre.name}</li>;
+        })}
+      </ul>
+
       <h3>Synopsis</h3>
       <p id="synopsis">{film.overview}</p>
       <button
