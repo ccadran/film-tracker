@@ -1,25 +1,25 @@
 .card {
   flex: 1 0 15%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  // display: flex;
+  // justify-content: space-between;
+  // flex-direction: column;
+  display: block;
   margin-bottom: 50px;
-  // min-width: 150px;
+  min-width: 250px;
   margin: 20px;
-  background: rgb(0, 0, 47);
+  background: rgb(237, 237, 237);
   border-radius: 30px;
   padding: 25px;
   font-family: $title-font;
   position: relative;
+  color: rgb(0, 0, 47);
   .heart {
     position: absolute;
-    // display: none;
-    opacity: 0.3;
+    opacity: 0;
   }
   .img-container {
     margin: 0 auto;
     width: 50%;
-    height: 100%;
     img {
       width: 100%;
     }
@@ -28,7 +28,7 @@
     font-family: $body-font;
   }
   #synopsis {
-    height: 7.5em;
+    height: 7em;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -36,13 +36,24 @@
     font-family: $body-font;
   }
   button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(0, 0, 47);
+    color: white;
+    border: none;
+    font-family: $title-font;
+    width: 40%;
+    padding: 5px 10px;
+    border-radius: 15px;
+    letter-spacing: 1px;
+    bottom: 20px;
     z-index: 1;
+    cursor: pointer;
   }
 }
-.added {
-  background-color: gray;
-  color: white;
-  cursor: pointer;
+button.added {
+  background-color: rgb(129, 5, 5);
 }
 .heart.like {
   opacity: 1;
