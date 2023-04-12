@@ -5,16 +5,20 @@
     align-items: center;
     margin: 20px;
     font-family: $title-font;
+    padding-left: 0;
     a {
       margin: 0 60px;
-      font-size: 6rem;
+      font-size: 8vw;
+      @media screen and (max-width: 600px) {
+        margin: 0 30px;
+      }
       li {
         position: relative;
         display: inline-block;
         font-weight: 800;
         color: transparent;
         background-color: transparent;
-        -webkit-text-stroke: 2px white;
+        -webkit-text-stroke: 0.2vw white;
         overflow: hidden;
         background: linear-gradient(
           to right,
@@ -27,6 +31,7 @@
         background-size: 200% 100%;
         background-position: 100%;
         transition: background-position 375ms ease;
+
         &:hover {
           background-position: 0 100%;
         }

@@ -5,15 +5,23 @@
   #searchBar {
     margin-bottom: 30px;
     width: 17vw;
+    min-width: 100px;
     height: 2vw;
+    min-height: 20px;
     padding: 5px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
     border: none;
+    transition: 0.2s ease-in-out;
+    &:focus {
+      outline: none;
+      scale: 1.05;
+    }
   }
   .search-filter {
     display: flex;
     width: 15vw;
+    min-width: 180px;
     justify-content: space-between;
     .filter {
       padding: 10px 20px 10px 20px;
@@ -22,7 +30,7 @@
       border: none;
       letter-spacing: 1.5px;
       position: relative;
-      width: 5vw;
+      width: 40%;
       min-width: 80px;
       transition: 0.2s ease-in-out;
       &:hover {
@@ -47,7 +55,6 @@
         transition: 0.3s ease-in-out;
       }
       &.active {
-        padding: 10px 30px 10px 20px;
         #up {
           opacity: 1;
           transform: translateY(-10%);

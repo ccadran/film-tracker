@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Popup from "./Popup";
 
 const Card = ({ film }) => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -19,7 +20,6 @@ const Card = ({ film }) => {
         console.log(error);
       });
   }, []);
-  console.log(genres);
 
   const handleAddToFavorites = () => {
     if (favorites.includes(film.id)) {
@@ -33,10 +33,12 @@ const Card = ({ film }) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [isBackdropOpen, setIsBackdropOpen] = useState(false);
+
   return (
     <li className="card">
       <i className={"fa-solid fa-heart heart" + (liked ? " like" : "")} />
-
       <div className="img-container">
         <img
           src={"https://image.tmdb.org/t/p/original/" + film.poster_path}
@@ -44,15 +46,26 @@ const Card = ({ film }) => {
         />
       </div>
       <h2>{film.title}</h2>
-      <p id="release"> Sortie le : {film.release_date}</p>
-      <h4>{film.vote_average}/10</h4>
-      <ul id="genres">
-        {film.genre_ids.map((id) => {
-          const genre = genres.find((genre) => genre.id === id);
-          return <li key={genre.id}>{genre.name}</li>;
+      <p id="release">
+        {" "}
+        Sortie le :{" "}
+        {new Date(film.release_date).toLocaleDateString("fr-FR", {
+          day: "numeric",
+          month: "numeric",
+          year: "numeric",
         })}
+      </p>
+      <h4>
+        {film.vote_average.toFixed(1)}/10 <i class="fa-solid fa-star"></i>
+      </h4>
+      <ul id="genres">
+        {genres.length > 0 && film.genre_ids && film.genre_ids.length > 0
+          ? film.genre_ids.map((id) => {
+              const genre = genres.find((genre) => genre.id === id);
+              return genre ? <li key={genre.id}>{genre.name}</li> : null;
+            })
+          : null}
       </ul>
-
       <h3>Synopsis</h3>
       <p id="synopsis">{film.overview}</p>
       <button
