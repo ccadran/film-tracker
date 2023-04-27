@@ -26,6 +26,7 @@ const Card = ({ film }) => {
       const index = favorites.indexOf(film.id);
       favorites.splice(index, 1);
       setLiked(false);
+      window.location.reload();
     } else {
       favorites.push(film.id);
       setLiked(true);
